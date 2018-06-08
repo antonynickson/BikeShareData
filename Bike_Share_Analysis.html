@@ -11787,14 +11787,11 @@ div#notebook {
 <li><a href="#visualizations">Visualizations</a></li>
 </ul>
 </li>
-<li><a href="#eda_continued">Performing Your Own Analysis</a></li>
 <li><a href="#conclusions">Conclusions</a></li>
 </ul>
 <p><a id='intro'></a></p>
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><blockquote><p><strong>Tip</strong>: Quoted sections like this will provide helpful instructions on how to navigate and use a Jupyter notebook.</p>
-</blockquote>
-<p>Over the past decade, bicycle-sharing systems have been growing in number and popularity in cities across the world. Bicycle-sharing systems allow users to rent bicycles for short trips, typically 30 minutes or less. Thanks to the rise in information technologies, it is easy for a user of the system to access a dock within the system to unlock or return bicycles. These technologies also provide a wealth of data that can be used to explore how these bike-sharing systems are used.</p>
-<p>In this project, you will perform an exploratory analysis on data provided by <a href="https://www.motivateco.com/">Motivate</a>, a bike-share system provider for many major cities in the United States. You will compare the system usage between three large cities: New York City, Chicago, and Washington, DC. You will also see if there are any differences within each system for those users that are registered, regular users and those users that are short-term, casual users.</p>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>Over the past decade, bicycle-sharing systems have been growing in number and popularity in cities across the world. Bicycle-sharing systems allow users to rent bicycles for short trips, typically 30 minutes or less. Thanks to the rise in information technologies, it is easy for a user of the system to access a dock within the system to unlock or return bicycles. These technologies also provide a wealth of data that can be used to explore how these bike-sharing systems are used.</p>
+<p>In this project, we will perform an exploratory analysis on data provided by <a href="https://www.motivateco.com/">Motivate</a>, a bike-share system provider for many major cities in the United States. we will compare the system usage between three large cities: New York City, Chicago, and Washington, DC. we will also see if there are any differences within each system for those users that are registered, regular users and those users that are short-term, casual users.</p>
 
 </div>
 </div>
@@ -11804,20 +11801,15 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='pose_questions'></a></p>
-<h2 id="Posing-Questions">Posing Questions<a class="anchor-link" href="#Posing-Questions">&#182;</a></h2><p>Before looking at the bike sharing data, you should start by asking questions you might want to understand about the bike share data. Consider, for example, if you were working for Motivate. What kinds of information would you want to know about in order to make smarter business decisions? If you were a user of the bike-share service, what factors might influence how you would want to use the service?</p>
-<p><strong>Question 1</strong>: Write at least two questions related to bike sharing that you think could be answered by data.</p>
-<p><strong>Answer</strong>: 1. how many users are using my service in a particular region/city?</p>
+<h2 id="Posing-Questions">Posing Questions<a class="anchor-link" href="#Posing-Questions">&#182;</a></h2><p>Before looking at the bike sharing data, we should start by asking questions we might want to understand about the bike share data. Consider, for example, if we were working for Motivate. What kinds of information would we want to know about in order to make smarter business decisions? If we were a user of the bike-share service, what factors might influence how we would want to use the service?</p>
 
-<pre><code>        2. what is the peak time ie) At what time, more people are  using my service?
+<pre><code>        1. how many users are using my service in a particular region/city?
+        2. what is the peak time ie) At what time, more people are  using my service?
         3. How many repetitve customers?
-        4. in one month how many distance people are travelling (cummlative) using my service ?
+        4. In one month how many distance people are travelling (cummlative) using my service ?
         5. What are all the different types of services they are providing so that i can select the one that is suitable for                me? 
         6. Is the service easily accessible? ie) do i have to travel far to avail the service 
-        7. If i didnt like the service. will they refund or find a solution immeditaely ?
-
-</code></pre>
-<blockquote><p><strong>Tip</strong>: If you double click on this cell, you will see the text change so that all of the formatting is removed. This allows you to edit this block of text. This block of text is written using <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a>, which is a way to format text using headers, links, italics, and many other options using a plain-text syntax. You will also use Markdown later in the Nanodegree program. Use <strong>Shift</strong> + <strong>Enter</strong> or <strong>Shift</strong> + <strong>Return</strong> to run the cell and show its rendered form.</p>
-</blockquote>
+        7. If i didnt like the service. will they refund or find a solution immeditaely ?</code></pre>
 
 </div>
 </div>
@@ -11833,17 +11825,14 @@ div#notebook {
 <li>Chicago (Divvy): <a href="https://www.divvybikes.com/system-data">Link</a></li>
 <li>Washington, DC (Capital Bikeshare): <a href="https://www.capitalbikeshare.com/system-data">Link</a></li>
 </ul>
-<p>If you visit these pages, you will notice that each city has a different way of delivering its data. Chicago updates with new data twice a year, Washington DC is quarterly, and New York City is monthly. <strong>However, you do not need to download the data yourself.</strong> The data has already been collected for you in the <code>/data/</code> folder of the project files. While the original data for 2016 is spread among multiple files for each city, the files in the <code>/data/</code> folder collect all of the trip data for the year into one file per city. Some data wrangling of inconsistencies in timestamp format within each city has already been performed for you. In addition, a random 2% sample of the original data is taken to make the exploration more manageable.</p>
-<p><strong>Question 2</strong>: However, there is still a lot of data for us to investigate, so it's a good idea to start off by looking at one entry from each of the cities we're going to analyze. Run the first code cell below to load some packages and functions that you'll be using in your analysis. Then, complete the second code cell to print out the first trip recorded from each of the cities (the second line of each data file).</p>
-<blockquote><p><strong>Tip</strong>: You can run a code cell like you formatted Markdown cells above by clicking on the cell and using the keyboard shortcut <strong>Shift</strong> + <strong>Enter</strong> or <strong>Shift</strong> + <strong>Return</strong>. Alternatively, a code cell can be executed using the <strong>Play</strong> button in the toolbar after selecting it. While the cell is running, you will see an asterisk in the message to the left of the cell, i.e. <code>In [*]:</code>. The asterisk will change into a number to show that execution has completed, e.g. <code>In [1]</code>. If there is output, it will show up as <code>Out [1]:</code>, with an appropriate number to match the "In" number.</p>
-</blockquote>
+<p>If we visit these pages, we will notice that each city has a different way of delivering its data. Chicago updates with new data twice a year, Washington DC is quarterly, and New York City is monthly. The data has already been collected in the <code>/data/</code> folder of the project files. While the original data for 2016 is spread among multiple files for each city, the files in the <code>/data/</code> folder collect all of the trip data for the year into one file per city.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## import all necessary packages and functions.</span>
@@ -11873,22 +11862,19 @@ div#notebook {
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">City: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">city</span><span class="p">))</span>
     
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
-        <span class="c1">## TODO: Use the csv library to set up a DictReader object. ##</span>
-        <span class="c1">## see https://docs.python.org/3/library/csv.html           ##</span>
+        <span class="c1">## Use the csv library to set up a DictReader object. ##</span>
+    
         <span class="n">trip_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
     
+        <span class="c1">## Read the first trip from the data file and store it in a variable.     ##</span>
         
-        <span class="c1">## TODO: Use a function on the DictReader object to read the     ##</span>
-        <span class="c1">## first trip from the data file and store it in a variable.     ##</span>
-        <span class="c1">## see https://docs.python.org/3/library/csv.html#reader-objects ##</span>
         <span class="n">first_trip</span> <span class="o">=</span> <span class="n">trip_reader</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
         
 
         
         
-        <span class="c1">## TODO: Use the pprint library to print the first trip. ##</span>
+        <span class="c1">##  Use the pprint library to print the first trip. ##</span>
         <span class="n">pprint</span><span class="p">(</span><span class="n">first_trip</span><span class="p">)</span>
-        <span class="c1">## see https://docs.python.org/3/library/pprint.html     ##</span>
         
     <span class="c1"># output city name and first trip for later testing</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">first_trip</span><span class="p">)</span>
@@ -11974,17 +11960,15 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If everything has been filled out correctly, you should see below the printout of each city name (which has been parsed from the data file name) that the first trip has been parsed in the form of a dictionary. When you set up a <code>DictReader</code> object, the first row of the data file is normally interpreted as column names. Every other row in the data file will use those column names as keys, as a dictionary is generated for each row.</p>
-<p>This will be useful since we can refer to quantities by an easily-understandable label instead of just a numeric index. For example, if we have a trip stored in the variable <code>row</code>, then we would rather get the trip duration from <code>row['duration']</code> instead of <code>row[0]</code>.</p>
+<p>Now, we should see below the printout of each city name (which has been parsed from the data file name) that the first trip has been parsed in the form of a dictionary. When we set up a <code>DictReader</code> object, the first row of the data file is normally interpreted as column names. Every other row in the data file will use those column names as keys, as a dictionary is generated for each row.</p>
 <p><a id='condensing'></a></p>
 <h3 id="Condensing-the-Trip-Data">Condensing the Trip Data<a class="anchor-link" href="#Condensing-the-Trip-Data">&#182;</a></h3><p>It should also be observable from the above printout that each city provides different information. Even where the information is the same, the column names and formats are sometimes different. To make things as simple as possible when we get to the actual exploration, we should trim and clean the data. Cleaning the data makes sure that the data formats across the cities are consistent, while trimming focuses only on the parts of the data we are most interested in to make the exploration easier to work with.</p>
-<p>You will generate new data files with five values of interest for each trip: trip duration, starting month, starting hour, day of the week, and user type. Each of these may require additional wrangling depending on the city:</p>
+<p>we will generate new data files with five values of interest for each trip: trip duration, starting month, starting hour, day of the week, and user type. Each of these may require additional wrangling depending on the city:</p>
 <ul>
 <li><strong>Duration</strong>: This has been given to us in seconds (New York, Chicago) or milliseconds (Washington). A more natural unit of analysis will be if all the trip durations are given in terms of minutes.</li>
-<li><strong>Month</strong>, <strong>Hour</strong>, <strong>Day of Week</strong>: Ridership volume is likely to change based on the season, time of day, and whether it is a weekday or weekend. Use the start time of the trip to obtain these values. The New York City data includes the seconds in their timestamps, while Washington and Chicago do not. The <a href="https://docs.python.org/3/library/datetime.html"><code>datetime</code></a> package will be very useful here to make the needed conversions.</li>
-<li><strong>User Type</strong>: It is possible that users who are subscribed to a bike-share system will have different patterns of use compared to users who only have temporary passes. Washington divides its users into two types: 'Registered' for users with annual, monthly, and other longer-term subscriptions, and 'Casual', for users with 24-hour, 3-day, and other short-term passes. The New York and Chicago data uses 'Subscriber' and 'Customer' for these groups, respectively. For consistency, you will convert the Washington labels to match the other two.</li>
+<li><strong>Month</strong>, <strong>Hour</strong>, <strong>Day of Week</strong>: Ridership volume is likely to change based on the season, time of day, and whether it is a weekday or weekend. Use the start time of the trip to obtain these values. The New York City data includes the seconds in their timestamps, while Washington and Chicago do not.</li>
+<li><strong>User Type</strong>: It is possible that users who are subscribed to a bike-share system will have different patterns of use compared to users who only have temporary passes. Washington divides its users into two types: 'Registered' for users with annual, monthly, and other longer-term subscriptions, and 'Casual', for users with 24-hour, 3-day, and other short-term passes. The New York and Chicago data uses 'Subscriber' and 'Customer' for these groups, respectively. For consistency, we will convert the Washington labels to match the other two.</li>
 </ul>
-<p><strong>Question 3a</strong>: Complete the helper functions in the code cells below to address each of the cleaning tasks described above.</p>
 
 </div>
 </div>
@@ -11999,15 +11983,11 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 <span class="sd">    Takes as input a dictionary containing info about a single trip (datum) and</span>
 <span class="sd">    its origin city (city) and returns the trip duration in units of minutes.</span>
 <span class="sd">    </span>
-<span class="sd">    Remember that Washington is in terms of milliseconds while Chicago and NYC</span>
+<span class="sd">    Washington is in terms of milliseconds while Chicago and NYC</span>
 <span class="sd">    are in terms of seconds. </span>
-<span class="sd">    </span>
-<span class="sd">    HINT: The csv module reads in all of the data as strings, including numeric</span>
-<span class="sd">    values. You will need a function to convert the strings into an appropriate</span>
-<span class="sd">    numeric type when making your transformations.</span>
-<span class="sd">    see https://docs.python.org/3/library/functions.html</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># YOUR CODE HERE</span>
+    <span class="c1"># CODE HERE</span>
   
     <span class="k">if</span> <span class="n">city</span> <span class="o">==</span> <span class="s1">&#39;NYC&#39;</span> <span class="ow">or</span> <span class="n">city</span> <span class="o">==</span> <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span>
         <span class="n">trip_dur</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">datum</span><span class="p">[</span><span class="s1">&#39;tripduration&#39;</span><span class="p">])</span>
@@ -12027,9 +12007,6 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
     <span class="k">return</span> <span class="n">duration</span>
 
 
-<span class="c1"># Some tests to check that your code works. There should be no output if all of</span>
-<span class="c1"># the assertions pass. The `example_trips` dictionary was obtained from when</span>
-<span class="c1"># you printed the first trip from each of the original data files.</span>
 <span class="n">tests</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NYC&#39;</span><span class="p">:</span> <span class="mf">13.9833</span><span class="p">,</span>
          <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span> <span class="mf">15.4333</span><span class="p">,</span>
          <span class="s1">&#39;Washington&#39;</span><span class="p">:</span> <span class="mf">7.1231</span><span class="p">}</span>
@@ -12054,11 +12031,11 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 <span class="sd">    its origin city (city) and returns the type of system user that made the</span>
 <span class="sd">    trip.</span>
 <span class="sd">    </span>
-<span class="sd">    Remember that Washington has different category names compared to Chicago</span>
+<span class="sd">    Washington has different category names compared to Chicago</span>
 <span class="sd">    and NYC. </span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">global</span> <span class="n">user_type</span>
-    <span class="c1"># YOUR CODE HERE</span>
+    
     <span class="k">if</span> <span class="n">city</span> <span class="o">==</span> <span class="s1">&#39;NYC&#39;</span> <span class="ow">or</span> <span class="n">city</span> <span class="o">==</span> <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span>
         <span class="n">user_type</span> <span class="o">=</span> <span class="n">datum</span><span class="p">[</span><span class="s1">&#39;usertype&#39;</span><span class="p">]</span>
     <span class="k">elif</span> <span class="n">city</span> <span class="o">==</span> <span class="s1">&#39;Washington&#39;</span> <span class="ow">and</span> <span class="n">datum</span><span class="p">[</span><span class="s1">&#39;Member Type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Registered&#39;</span><span class="p">:</span>
@@ -12071,9 +12048,6 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
     <span class="k">return</span> <span class="n">user_type</span>
 
 
-<span class="c1"># Some tests to check that your code works. There should be no output if all of</span>
-<span class="c1"># the assertions pass. The `example_trips` dictionary was obtained from when</span>
-<span class="c1"># you printed the first trip from each of the original data files.</span>
 <span class="n">tests</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NYC&#39;</span><span class="p">:</span> <span class="s1">&#39;Customer&#39;</span><span class="p">,</span>
          <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">,</span>
          <span class="s1">&#39;Washington&#39;</span><span class="p">:</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">}</span>
@@ -12098,14 +12072,11 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 <span class="sd">    its origin city (city) and returns the month, hour, and day of the week in</span>
 <span class="sd">    which the trip was made.</span>
 <span class="sd">    </span>
-<span class="sd">    Remember that NYC includes seconds, while Washington and Chicago do not.</span>
+<span class="sd">    NYC includes seconds, while Washington and Chicago do not.</span>
 <span class="sd">    </span>
-<span class="sd">    HINT: You should use the datetime module to parse the original date</span>
-<span class="sd">    strings into a format that is useful for extracting the desired information.</span>
-<span class="sd">    see https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
-    <span class="c1"># YOUR CODE HERE</span>
+  
     <span class="k">if</span> <span class="n">city</span> <span class="o">==</span> <span class="s1">&#39;NYC&#39;</span><span class="p">:</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">datum</span><span class="p">[</span><span class="s1">&#39;starttime&#39;</span><span class="p">]</span>
         <span class="n">mymonth</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="s1">&#39;%m/</span><span class="si">%d</span><span class="s1">/%Y %H:%M:%S&#39;</span><span class="p">)</span>
@@ -12134,9 +12105,6 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
     <span class="k">return</span> <span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">day_of_week</span><span class="p">)</span>
 
 
-<span class="c1"># Some tests to check that your code works. There should be no output if all of</span>
-<span class="c1"># the assertions pass. The `example_trips` dictionary was obtained from when</span>
-<span class="c1"># you printed the first trip from each of the original data files.</span>
 <span class="n">tests</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NYC&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Friday&#39;</span><span class="p">),</span>
          <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">),</span>
          <span class="s1">&#39;Washington&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">)}</span>
@@ -12150,15 +12118,6 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Question 3b</strong>: Now, use the helper functions you wrote above to create a condensed data file for each city consisting only of the data fields indicated above. In the <code>/examples/</code> folder, you will see an example datafile from the <a href="http://www.bayareabikeshare.com/open-data">Bay Area Bike Share</a> before and after conversion. Make sure that your output is formatted to be consistent with the example file.</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
@@ -12170,7 +12129,6 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 <span class="sd">    and writes the condensed data to a specified output file. The city</span>
 <span class="sd">    argument determines how the input file will be parsed.</span>
 <span class="sd">    </span>
-<span class="sd">    HINT: See the cell below to see how the arguments are structured!</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_out</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">in_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
@@ -12179,7 +12137,7 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
         <span class="n">out_colnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;hour&#39;</span><span class="p">,</span> <span class="s1">&#39;day_of_week&#39;</span><span class="p">,</span> <span class="s1">&#39;user_type&#39;</span><span class="p">]</span>        
         <span class="n">trip_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">f_out</span><span class="p">,</span> <span class="n">fieldnames</span> <span class="o">=</span> <span class="n">out_colnames</span><span class="p">)</span>
         <span class="n">trip_writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
-        <span class="c1">## TODO: set up csv DictReader object ##</span>
+        <span class="c1">## Tset up csv DictReader object ##</span>
         <span class="n">trip_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
         <span class="c1"># collect data from and process each row</span>
         <span class="n">temp</span> <span class="o">=</span> <span class="p">[]</span>
@@ -12188,10 +12146,7 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
             <span class="c1"># set up a dictionary to hold the values for the cleaned and trimmed</span>
             <span class="c1"># data point</span>
             <span class="n">new_point</span> <span class="o">=</span> <span class="p">{}</span>
-            <span class="c1">## TODO: use the helper functions to get the cleaned data from  ##</span>
-            <span class="c1">## the original data dictionaries.                              ##</span>
-            <span class="c1">## Note that the keys for the new_point dictionary should match ##</span>
-            <span class="c1">## the column names set in the DictWriter object above.         ##</span>
+
             <span class="n">new_point</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">duration_in_mins</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span>
             
             <span class="n">month</span><span class="p">,</span><span class="n">hour</span><span class="p">,</span><span class="n">day_of_week</span> <span class="o">=</span> <span class="n">time_of_trip</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span>
@@ -12199,8 +12154,7 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
             <span class="n">new_point</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">hour</span>
             <span class="n">new_point</span><span class="p">[</span><span class="s1">&#39;day_of_week&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">day_of_week</span>
             <span class="n">new_point</span><span class="p">[</span><span class="s1">&#39;user_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">type_of_user</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">city</span><span class="p">)</span>
-            <span class="c1">## TODO: write the processed information to the output file.     ##</span>
-                <span class="c1">## see https://docs.python.org/3/library/csv.html#writer-objects #</span>
+
             <span class="c1">#print(new_point)</span>
             <span class="c1">#temp.append(new_point)</span>
         <span class="c1">#print(temp)</span>
@@ -12233,7 +12187,7 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Run this cell to check your work</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Run this cell to check our work</span>
 <span class="n">city_info</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Washington&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;in_file&#39;</span><span class="p">:</span> <span class="s1">&#39;./data/Washington-CapitalBikeshare-2016.csv&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;out_file&#39;</span><span class="p">:</span> <span class="s1">&#39;./data/Washington-2016-Summary.csv&#39;</span><span class="p">},</span>
              <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;in_file&#39;</span><span class="p">:</span> <span class="s1">&#39;./data/Chicago-Divvy-2016.csv&#39;</span><span class="p">,</span>
@@ -12293,17 +12247,15 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p><strong>Tip</strong>: If you save a jupyter Notebook, the output from running code blocks will also be saved. However, the state of your workspace will be reset once a new session is started. Make sure that you run all of the necessary code blocks from your previous session to reestablish variables and functions before picking up where you last left off.</p>
-</blockquote>
 <p><a id='eda'></a></p>
-<h2 id="Exploratory-Data-Analysis">Exploratory Data Analysis<a class="anchor-link" href="#Exploratory-Data-Analysis">&#182;</a></h2><p>Now that you have the data collected and wrangled, you're ready to start exploring the data. In this section you will write some code to compute descriptive statistics from the data. You will also be introduced to the <code>matplotlib</code> library to create some basic histograms of the data.</p>
+<h2 id="Exploratory-Data-Analysis">Exploratory Data Analysis<a class="anchor-link" href="#Exploratory-Data-Analysis">&#182;</a></h2><p>Now that we have the data collected and wrangled, we're ready to start exploring the data. In this section we will write  code to compute descriptive statistics from the data. we will also use <code>matplotlib</code> library to create  histograms of the data.</p>
 <p><a id='statistics'></a></p>
-<h3 id="Statistics">Statistics<a class="anchor-link" href="#Statistics">&#182;</a></h3><p>First, let's compute some basic counts. The first cell below contains a function that uses the csv module to iterate through a provided data file, returning the number of trips made by subscribers and customers. The second cell runs this function on the example Bay Area data in the <code>/examples/</code> folder. Modify the cells to answer the question below.</p>
-<p><strong>Question 4a</strong>: Which city has the highest number of trips? Which city has the highest proportion of trips made by subscribers? Which city has the highest proportion of trips made by short-term customers?</p>
-<p><strong>Answer</strong>:</p>
-<p>highest number of trips: NYC
-The highest propotion of subscribers recorded in nyc: 0.89
-highest proportion of trips made by short-term customers: Chicago</p>
+<h3 id="Statistics">Statistics<a class="anchor-link" href="#Statistics">&#182;</a></h3><p>First, let's compute some basic counts. The first cell below contains a function that uses the csv module to iterate through a provided data file, returning the number of trips made by subscribers and customers. The second cell runs this function on the example Bay Area data in the <code>/examples/</code> folder.</p>
+<ol>
+<li>Which city has the highest number of trips? </li>
+<li>Which city has the highest proportion of trips made by subscribers? </li>
+<li>Which city has the highest proportion of trips made by short-term customers?</li>
+</ol>
 
 </div>
 </div>
@@ -12313,7 +12265,9 @@ highest proportion of trips made by short-term customers: Chicago</p>
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">trips_cities</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#1</span>
+
+<span class="k">def</span> <span class="nf">trips_cities</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>        
         <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>        
@@ -12371,8 +12325,7 @@ highest proportion of trips made by short-term customers: Chicago</p>
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Modify this and the previous cell to answer Question 4a. Remember to run ##</span>
-<span class="c1">## the function on the cleaned data files you created from Question 3.      ##</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#3</span>
 
 <span class="k">def</span> <span class="nf">number_of_customers</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -12450,7 +12403,9 @@ highest proportion of trips made by short-term customers: Chicago</p>
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">number_of_subscribers</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#2</span>
+
+<span class="k">def</span> <span class="nf">number_of_subscribers</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function reads in a file with trip data and reports the number of</span>
 <span class="sd">    trips made by subscribers, customers, and total overall.</span>
@@ -12528,20 +12483,11 @@ highest proportion of trips made by short-term customers: Chicago</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p><strong>Tip</strong>: In order to add additional cells to a notebook, you can use the "Insert Cell Above" and "Insert Cell Below" options from the menu bar above. There is also an icon in the toolbar for adding new cells, with additional icons for moving the cells up and down the document. By default, new cells are of the code type; you can also specify the cell type (e.g. Code or Markdown) of selected cells from the Cell menu or the dropdown in the toolbar.</p>
-</blockquote>
-<p>Now, you will write your own code to continue investigating properties of the data.</p>
-<p><strong>Question 4b</strong>: Bike-share systems are designed for riders to take short trips. Most of the time, users are allowed to take trips of 30 minutes or less with no additional charges, with overage charges made for trips of longer than that duration. What is the average trip length for each city? What proportion of rides made in each city are longer than 30 minutes?</p>
-<p><strong>Answer</strong>:</p>
+<p>Now, Lets write code to continue investigating properties of the data.</p>
+<p>Bike-share systems are designed for riders to take short trips. Most of the time, users are allowed to take trips of 30 minutes or less with no additional charges, with overage charges made for trips of longer than that duration.</p>
 <ol>
-<li>Average Trip for Each City:
- The Average trip length of Chicago: 17 minutes
- The Average trip length of nyc: 16 minutes
- The Average trip length of washington: 14 minutes</li>
-<li>Proportion of rides made in each city are longer than 30 minutes:
- The propotion of Chicago: 0.08
- The propotion of nyc: 0.07
- The propotion of washington: 0.08</li>
+<li>What is the average trip length for each city? </li>
+<li>What proportion of rides made in each city are longer than 30 minutes?</li>
 </ol>
 
 </div>
@@ -12552,13 +12498,7 @@ highest proportion of trips made by short-term customers: Chicago</p>
 <div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use this and additional cells to answer Question 4b.                 ##</span>
-<span class="c1">##                                                                      ##</span>
-<span class="c1">## HINT: The csv module reads in all of the data as strings, including  ##</span>
-<span class="c1">## numeric values. You will need a function to convert the strings      ##</span>
-<span class="c1">## into an appropriate numeric type before you aggregate data.          ##</span>
-<span class="c1">## TIP: For the Bay Area example, the average trip length is 14 minutes ##</span>
-<span class="c1">## and 3.5% of trips are longer than 30 minutes.                        ##</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#1</span>
 
 <span class="k">def</span> <span class="nf">trip_length</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="n">total_trip</span> <span class="o">=</span> <span class="mi">0</span>
@@ -12624,7 +12564,8 @@ The Average trip length of washington: 19.0 minutes
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">prop_duration</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#2</span>
+<span class="k">def</span> <span class="nf">prop_duration</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">trip_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
@@ -12690,8 +12631,8 @@ The propotion of washington: 0.11
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Question 4c</strong>: Dig deeper into the question of trip duration based on ridership. Choose one city. Within that city, which type of user takes longer rides on average: Subscribers or Customers?</p>
-<p><strong>Answer</strong>: Customers takes longer rides on average: 33.0 minutes</p>
+<p>Let's Dig deeper into the question of trip duration based on ridership.</p>
+<p>Let's Choose one city. Within that city, which type of user takes longer rides on average: Subscribers or Customers?</p>
 
 </div>
 </div>
@@ -12701,14 +12642,7 @@ The propotion of washington: 0.11
 <div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use this and additional cells to answer Question 4c. If you have    ##</span>
-<span class="c1">## not done so yet, consider revising some of your previous code to    ##</span>
-<span class="c1">## make use of functions for reusability.                              ##</span>
-<span class="c1">##                                                                     ##</span>
-<span class="c1">## TIP: For the Bay Area example data, you should find the average     ##</span>
-<span class="c1">## Subscriber trip duration to be 9.5 minutes and the average Customer ##</span>
-<span class="c1">## trip duration to be 54.6 minutes. Do the other cities have this     ##</span>
-<span class="c1">## level of difference?                                                ##</span>
+<div class=" highlight hl-ipython3"><pre><span></span>                                        
 
 <span class="k">def</span> <span class="nf">long_ride</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="n">total_trip_sub</span> <span class="o">=</span> <span class="mi">0</span>
@@ -12774,7 +12708,7 @@ The propotion of washington: 0.11
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='visualizations'></a></p>
-<h3 id="Visualizations">Visualizations<a class="anchor-link" href="#Visualizations">&#182;</a></h3><p>The last set of values that you computed should have pulled up an interesting result. While the mean trip time for Subscribers is well under 30 minutes, the mean trip time for Customers is actually <em>above</em> 30 minutes! It will be interesting for us to look at how the trip times are distributed. In order to do this, a new library will be introduced here, <code>matplotlib</code>. Run the cell below to load the library and to generate an example plot.</p>
+<h3 id="Visualizations">Visualizations<a class="anchor-link" href="#Visualizations">&#182;</a></h3><p>The last set of values that we computed should have pulled up an interesting result. While the mean trip time for Subscribers is well under 30 minutes, the mean trip time for Customers is actually <em>above</em> 30 minutes! It will be interesting for us to look at how the trip times are distributed. In order to do this, we will use a a new library <code>matplotlib</code>.</p>
 
 </div>
 </div>
@@ -12789,10 +12723,6 @@ The propotion of washington: 0.11
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span><span class="p">;</span> <span class="n">plt</span><span class="o">.</span><span class="n">rcdefaults</span><span class="p">()</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">plotly.plotly</span> <span class="k">as</span> <span class="nn">py</span>
-
-<span class="c1"># this is a &#39;magic word&#39; that allows for plots to be displayed</span>
-<span class="c1"># inline with the notebook. If you want to know more, see:</span>
-<span class="c1"># http://ipython.readthedocs.io/en/stable/interactive/magics.html</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline 
 
 <span class="c1"># example histogram, data taken from bay area sample</span>
@@ -12834,25 +12764,12 @@ The propotion of washington: 0.11
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In the above cell, we collected fifty trip times in a list, and passed this list as the first argument to the <code>.hist()</code> function. This function performs the computations and creates plotting objects for generating a histogram, but the plot is actually not rendered until the <code>.show()</code> function is executed. The <code>.title()</code> and <code>.xlabel()</code> functions provide some labeling for plot context.</p>
-<p>You will now use these functions to create a histogram of the trip times for the city you selected in question 4c. Don't separate the Subscribers and Customers for now: just collect all of the trip times and plot them.</p>
-
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use this and additional cells to collect all of the trip times as a list ##</span>
-<span class="c1">## and then use pyplot functions to generate a histogram of trip times.     ##</span>
-
-<span class="k">def</span> <span class="nf">histogram_trip</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">histogram_trip</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="n">new_trip</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">data_files_n</span> <span class="o">=</span> <span class="s1">&#39;./data/NYC-2016-Summary.csv&#39;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data_files_n</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -12901,24 +12818,9 @@ The propotion of washington: 0.11
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If you followed the use of the <code>.hist()</code> and <code>.show()</code> functions exactly like in the example, you're probably looking at a plot that's completely unexpected. The plot consists of one extremely tall bar on the left, maybe a very short second bar, and a whole lot of empty space in the center and right. Take a look at the duration values on the x-axis. This suggests that there are some highly infrequent outliers in the data. Instead of reprocessing the data, you will use additional parameters with the <code>.hist()</code> function to limit the range of data that is plotted. Documentation for the function can be found <a href="https://matplotlib.org/devdocs/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist">[here]</a>.</p>
-<p><strong>Question 5</strong>: Use the parameters of the <code>.hist()</code> function to plot the distribution of trip times for the Subscribers in your selected city. Do the same thing for only the Customers. Add limits to the plots so that only trips of duration less than 75 minutes are plotted. As a bonus, set the plots up so that bars are in five-minute wide intervals. For each group, where is the peak of each distribution? How would you describe the shape of each distribution?</p>
-<p><strong>Answer</strong>:</p>
-<ol>
-<li><p>where is the peak of each distribution?
- a. Subscribers:</p>
-
-<pre><code>     The Peak is at where X is:  6.5625
-
-</code></pre>
-<p>b. customers:</p>
-
-<pre><code>     The Peak is at where X is:  21.7148         </code></pre>
-</li>
-<li><p>How would you describe the shape of each distribution?
-  Both Customer and Subscriber distribution is possibly non-symmetric, the fact that it has only one peak makes it unimodal, and it's skewed right (postive skewness).</p>
-</li>
-</ol>
+<p>The plot consists of one extremely tall bar on the left, maybe a very short second bar, and a whole lot of empty space in the center and right. Take a look at the duration values on the x-axis. This suggests that there are some highly infrequent outliers in the data. Instead of reprocessing the data, we will use additional parameters with the <code>.hist()</code> function to limit the range of data that is plotted.</p>
+<p>Let's Use the parameters of the <code>.hist()</code> function to plot the distribution of trip times for the Subscribers in wer selected city. lets do  only for the Customers. Add limits to the plots so that only trips of duration less than 75 minutes are plotted. Also,we will set the plots up so that bars are in five-minute wide intervals.</p>
+<p>For each group, let's find out the peak of each distribution? How would we describe the shape of each distribution?</p>
 
 </div>
 </div>
@@ -12928,9 +12830,7 @@ The propotion of washington: 0.11
 <div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use this and additional cells to answer Question 5. ##</span>
-
-<span class="k">def</span> <span class="nf">histogram_subs</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">histogram_subs</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="n">new_trip</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">data_files_n</span> <span class="o">=</span> <span class="s1">&#39;./data/NYC-2016-Summary.csv&#39;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">data_files_n</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -13115,28 +13015,40 @@ The propotion of washington: 0.11
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">**</span><span class="n">Answer</span><span class="o">**</span><span class="p">:</span> 
+
+<span class="mf">1.</span> <span class="n">where</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">peak</span> <span class="n">of</span> <span class="n">each</span> distribution<span class="o">?</span>
+    <span class="n">a</span><span class="o">.</span> <span class="n">Subscribers</span><span class="p">:</span>
+            <span class="n">The</span> <span class="n">Peak</span> <span class="ow">is</span> <span class="n">at</span> <span class="n">where</span> <span class="n">X</span> <span class="ow">is</span><span class="p">:</span>  <span class="mf">6.5625</span>
+        
+    <span class="n">b</span><span class="o">.</span> <span class="n">customers</span><span class="p">:</span>
+            <span class="n">The</span> <span class="n">Peak</span> <span class="ow">is</span> <span class="n">at</span> <span class="n">where</span> <span class="n">X</span> <span class="ow">is</span><span class="p">:</span>  <span class="mf">21.7148</span>         
+
+<span class="mf">2.</span> <span class="n">How</span> <span class="n">would</span> <span class="n">we</span> <span class="n">describe</span> <span class="n">the</span> <span class="n">shape</span> <span class="n">of</span> <span class="n">each</span> distribution<span class="o">?</span>
+     <span class="n">Both</span> <span class="n">Customer</span> <span class="ow">and</span> <span class="n">Subscriber</span> <span class="n">distribution</span> <span class="ow">is</span> <span class="n">possibly</span> <span class="n">non</span><span class="o">-</span><span class="n">symmetric</span><span class="p">,</span> <span class="n">the</span> <span class="n">fact</span> <span class="n">that</span> <span class="n">it</span> <span class="n">has</span> <span class="n">only</span> <span class="n">one</span> <span class="n">peak</span> <span class="n">makes</span> <span class="n">it</span> <span class="n">unimodal</span><span class="p">,</span> <span class="ow">and</span> <span class="n">it</span><span class="s1">&#39;s skewed right (postive skewness).</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='eda_continued'></a></p>
-<h2 id="Performing-Your-Own-Analysis">Performing Your Own Analysis<a class="anchor-link" href="#Performing-Your-Own-Analysis">&#182;</a></h2><p>So far, you've performed an initial exploration into the data available. You have compared the relative volume of trips made between three U.S. cities and the ratio of trips made by Subscribers and Customers. For one of these cities, you have investigated differences between Subscribers and Customers in terms of how long a typical trip lasts. Now it is your turn to continue the exploration in a direction that you choose. Here are a few suggestions for questions to explore:</p>
+<p>So far, we've performed an initial exploration into the data available. we have compared the relative volume of trips made between three U.S. cities and the ratio of trips made by Subscribers and Customers. For one of these cities, we have investigated differences between Subscribers and Customers in terms of how long a typical trip lasts. Now it is our turn to continue the exploration in a different direction</p>
 <ul>
 <li>How does ridership differ by month or season? Which month / season has the highest ridership? Does the ratio of Subscriber trips to Customer trips change depending on the month or season?</li>
 <li>Is the pattern of ridership different on the weekends versus weekdays? On what days are Subscribers most likely to use the system? What about Customers? Does the average duration of rides change depending on the day of the week?</li>
 <li>During what time of day is the system used the most? Is there a difference in usage patterns for Subscribers and Customers?</li>
 </ul>
-<p>If any of the questions you posed in your answer to question 1 align with the bullet points above, this is a good opportunity to investigate one of them. As part of your investigation, you will need to create a visualization. If you want to create something other than a histogram, then you might want to consult the <a href="https://matplotlib.org/devdocs/api/pyplot_summary.html">Pyplot documentation</a>. In particular, if you are plotting values across a categorical variable (e.g. city, user type), a bar chart will be useful. The <a href="https://matplotlib.org/devdocs/api/_as_gen/matplotlib.pyplot.bar.html#matplotlib.pyplot.bar">documentation page for <code>.bar()</code></a> includes links at the bottom of the page with examples for you to build off of for your own use.</p>
-<p><strong>Question 6</strong>: Continue the investigation by exploring another question that could be answered by the data available. Document the question you want to explore below. Your investigation should involve at least two variables and should compare at least two groups. You should also use at least one visualization as part of your explorations.</p>
-<p><strong>Answer</strong>:</p>
-<ol>
-<li>Trip Duration Month wise (Trips vs Months)</li>
-<li>Trip Duration Season wise (Trips vs Seasons)</li>
-<li>Highest Trip Duration of the Month in a year</li>
-<li>Highest Trip Duration of the Season in a year</li>
-<li>Trip Duration Ratio b/w subscribers to customers - Month wise</li>
-<li>Trip Duration Ratio b/w subscribers to customers - Season wise</li>
-</ol>
+<p>Let's Continue the investigation by exploring another question that could be answered by the data available.</p>
 
 </div>
 </div>
@@ -13146,10 +13058,7 @@ The propotion of washington: 0.11
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use this and additional cells to continue to explore the dataset. ##</span>
-<span class="c1">## Once you have performed your exploration, document your findings  ##</span>
-<span class="c1">## in the Markdown cell above.                                       ##</span>
-<span class="k">def</span> <span class="nf">ride_month</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ride_month</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="n">month_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">month_dict</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">data_files_c</span> <span class="o">=</span> <span class="s1">&#39;./data/Chicago-Divvy-2016.csv&#39;</span>
@@ -13516,27 +13425,32 @@ Ratio of subscribers to customers in the season of Oct-Dec: 38.65
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">**</span><span class="n">Answer</span><span class="o">**</span><span class="p">:</span> 
+
+<span class="mf">1.</span> <span class="n">Trip</span> <span class="n">Duration</span> <span class="n">Month</span> <span class="n">wise</span> <span class="p">(</span><span class="n">Trips</span> <span class="n">vs</span> <span class="n">Months</span><span class="p">)</span>
+<span class="mf">2.</span> <span class="n">Trip</span> <span class="n">Duration</span> <span class="n">Season</span> <span class="n">wise</span> <span class="p">(</span><span class="n">Trips</span> <span class="n">vs</span> <span class="n">Seasons</span><span class="p">)</span>
+<span class="mf">3.</span> <span class="n">Highest</span> <span class="n">Trip</span> <span class="n">Duration</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Month</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">year</span>
+<span class="mf">4.</span> <span class="n">Highest</span> <span class="n">Trip</span> <span class="n">Duration</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Season</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">year</span>
+<span class="mf">5.</span> <span class="n">Trip</span> <span class="n">Duration</span> <span class="n">Ratio</span> <span class="n">b</span><span class="o">/</span><span class="n">w</span> <span class="n">subscribers</span> <span class="n">to</span> <span class="n">customers</span> <span class="o">-</span> <span class="n">Month</span> <span class="n">wise</span>
+<span class="mf">6.</span> <span class="n">Trip</span> <span class="n">Duration</span> <span class="n">Ratio</span> <span class="n">b</span><span class="o">/</span><span class="n">w</span> <span class="n">subscribers</span> <span class="n">to</span> <span class="n">customers</span> <span class="o">-</span> <span class="n">Season</span> <span class="n">wise</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='conclusions'></a></p>
-<h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">&#182;</a></h2><p>Congratulations on completing the project! This is only a sampling of the data analysis process: from generating questions, wrangling the data, and to exploring the data. Normally, at this point in the data analysis process, you might want to draw conclusions about the data by performing a statistical test or fitting the data to a model for making predictions. There are also a lot of potential analyses that could be performed on the data which are not possible with only the data provided. For example, detailed location data has not been investigated. Where are the most commonly used docks? What are the most common routes? As another example, weather has potential to have a large impact on daily ridership. How much is ridership impacted when there is rain or snow? Are subscribers or customers affected more by changes in weather?</p>
-<p><strong>Question 7</strong>: Putting the bike share data aside, think of a topic or field of interest where you would like to be able to apply the techniques of data science. What would you like to be able to learn from your chosen subject?</p>
-<p><strong>Answer</strong>: Social Networking Website</p>
-
-<pre><code>        1. How many users are currently online?
-        2. Which country spends more time online?
-        3. Which Gender is more active ?
-        4. Which Age group is posting more updates ?
-
-
-</code></pre>
-<blockquote><p><strong>Tip</strong>: If we want to share the results of our analysis with others, we aren't limited to giving them a copy of the jupyter Notebook (.ipynb) file. We can also export the Notebook output in a form that can be opened even for those without Python installed. From the <strong>File</strong> menu in the upper left, go to the <strong>Download as</strong> submenu. You can then choose a different format that can be viewed more generally, such as HTML (.html) or
-PDF (.pdf). You may need additional packages or software to perform these exports.</p>
-<p>If you are working on this project via the Project Notebook page in the classroom, you can also submit this project directly from the workspace. <strong>Before you do that</strong>, you should save an HTML copy of the completed project to the workspace by running the code cell below. If it worked correctly, the output code should be a 0, and if you click on the jupyter icon in the upper left, you should see your .html document in the workspace directory. Alternatively, you can download the .html copy of your report following the steps in the previous paragraph, then <em>upload</em> the report to the directory (by clicking the jupyter icon).</p>
-<p>Either way, once you've gotten the .html report in your workspace, you can complete your submission by clicking on the "Submit Project" button to the lower-right hand side of the workspace.</p>
-</blockquote>
+<h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">&#182;</a></h2><p>In this project we have assessed Python to explore the dataset related to BikeShare systems for three major cities in the United States.we have performed data wrangling to unify the format of data from the three systems and write code to compute descriptive statistics.we also used libraries like Pandas, numpy to wrangle the data and matplotlib to visually analyse the wrangled dataset.</p>
 
 </div>
 </div>
